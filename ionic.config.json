@@ -1,0 +1,7 @@
+{
+  "name": "VIVO_DUOC",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
