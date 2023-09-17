@@ -36,7 +36,7 @@ export class RecuperarPage implements OnInit {
     // hacer tus pruebas y así no tener que digitarlos a cada rato
 
     // this.usuario.setUsuario('sin.datos@duocuc.cl', '1234');
-    // this.usuario.setUsuario('atorres@duocuc.cl', '1234');
+    this.usuario.setUsuario('atorres@duocuc.cl', '1234');
     // this.usuario.setUsuario('jperez@duocuc.cl', '5678');
     // this.usuario.setUsuario('cmujica@duocuc.cl', '0987');
     // this.usuario.setUsuario('usuario.inexistente@duocuc.cl', '1234');
@@ -98,12 +98,6 @@ export class RecuperarPage implements OnInit {
     
   }
 
-
-
-
-
-
-  
   async mostrarMensaje(mensaje: string, duracion?: number) {
     // Permite mostrar un mensaje emergente que dura unos pocos segundos y desaparece. El mensaje es asincrónico, 
     // los que permite que el mensaje se pueda ver incluso cuando ya ha cambiado a la siguiente página.

@@ -14,7 +14,9 @@
 
 /*HEADER-LOGO*/
 .header-toolbar {
-    --background: url('assets/img/DuocUC.svg.png') no-repeat center center / contain, rgb(0, 0, 136);
+    --background: url('assets/img/DuocUC.png') no-repeat center center / contain;
+    background-color: transparent;
+    border-color: transparent;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -23,15 +25,14 @@
 }
 
 /*BACKGROUND*/
-.background{
-    --background: url('/assets/img/img_duoc.jpg') no-repeat center/cover fixed;
-    background-attachment: fixed;
+.background {
+    --background: url('/assets/img/img_duoc.jpg') no-repeat center/cover;
+    background-attachment: scroll;
     background-size: cover;
     overflow: hidden;
     background-position: center center;
     background-repeat: no-repeat;
     background: transparent;
-    
 }
 
 /*CENTER*/
@@ -99,7 +100,9 @@
 
 /*FOOTER-LOGO*/
 .footer-toolbar {
-    --background: url('assets/img/acreditacion.png') no-repeat center center / contain, rgb(0, 0, 136);
+    --background: url('assets/img/acreditacion.png') no-repeat center center / contain;
+    background-color: transparent;
+    border-color: transparent;
     height: 100%;
     display: flex;
     justify-content: center;
