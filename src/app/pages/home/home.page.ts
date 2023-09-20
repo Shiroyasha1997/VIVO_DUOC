@@ -14,7 +14,8 @@ import jsQR, { QRCode } from 'jsqr';
 export class HomePage implements OnInit, AfterViewInit {
 
   @ViewChild('titulo', { read: ElementRef }) itemTitulo!: ElementRef;
-    @ViewChild('video')
+
+  @ViewChild('video')
   private video!: ElementRef;
 
   @ViewChild('canvas')
@@ -61,7 +62,6 @@ export class HomePage implements OnInit, AfterViewInit {
       .play();
   }
 
-
   public ngOnInit(): void {
   }
 
@@ -70,15 +70,17 @@ export class HomePage implements OnInit, AfterViewInit {
       const animation = this.animationController
         .create()
         .addElement(this.itemTitulo.nativeElement)
-        .iterations(1)
-        .duration(3000)
-        .fromTo('transform', 'translate(0%)', 'translate(45%)')
+        .iterations(Infinity)
+        .duration(5000)
+        .keyframes([
+          { offset: 0, transform: 'translateX(-90%)' },
+          { offset: 0.5, transform: 'translateX(0%)' },
+          { offset: 1, transform: 'translateX(90%)' }
+        ])
         .fromTo('opacity', 0.2, 1);
-
       animation.play();
     }
   }
-
 
   // Se va a solicitar el uso de la cámara, por medio de "navigator.mediaDevices.getUserMedia".
   // La cámara es necesaria para poder capturar el Código QR.
@@ -174,9 +176,6 @@ export class HomePage implements OnInit, AfterViewInit {
   }
 
   cerrarSesion() {
-    // Aquí puedes agregar la lógica para cerrar la sesión
-    // Por ejemplo, puedes redirigir al usuario a la página de inicio de sesión o borrar los datos de sesión almacenados
-    // Ejemplo de redirección a la página de inicio de sesión:
     this.router.navigate(['/login']);
   }
 
