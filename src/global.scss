@@ -12,11 +12,15 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+/*TITULO ANIMADO*/
+.titulo-animado {
+    color: #000000;
+}
+
 /*HEADER-LOGO*/
 .header-toolbar {
-    --background: url('assets/img/DuocUC.png') no-repeat center center / contain;
-    background-color: transparent;
-    border-color: transparent;
+    --background: url('assets/img/duoc_logo_white.png') no-repeat center center / contain;
+    background-color:#002138;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -35,14 +39,8 @@
     background: transparent;
 }
 
-/*CENTER*/
-.centratit{
-    display: flex;
-    align-items: center;
-}
-
 /*BOTON*/
-.botonduoc {
+.boton-duoc {
     --background: #002138;
     --background-hover: #002138;
     --background-activated: #002138;
@@ -54,7 +52,7 @@
 }
 
 /*INPUT TEXT*/
-.ingrdat{
+.input-text{
     --background: #4B4B4B;
     --background-hover: #4B4B4B;
     --background-activated: #4B4B4B;
@@ -80,7 +78,7 @@
 }
 
 /*CORRECTO E INCORRECTO IMG*/
-.imagena{
+.img-size{
     height: 200px;
     width: 200px;
 }
@@ -101,8 +99,7 @@
 /*FOOTER-LOGO*/
 .footer-toolbar {
     --background: url('assets/img/acreditacion.png') no-repeat center center / contain;
-    background-color: transparent;
-    border-color: transparent;
+    background-color:#002138;
     height: 100%;
     display: flex;
     justify-content: center;
