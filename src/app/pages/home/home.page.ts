@@ -77,7 +77,6 @@ export class HomePage implements OnInit, AfterViewInit {
           { offset: 0.5, transform: 'translateX(0%)' },
           { offset: 1, transform: 'translateX(90%)' }
         ])
-        .fromTo('opacity', 0.2, 1);
       animation.play();
     }
   }
@@ -151,25 +150,23 @@ export class HomePage implements OnInit, AfterViewInit {
 
   public mostrarDatosQROrdenados(datosQR: string): void {
     this.datosQR = datosQR;
-    
     const objetoDatosQR = JSON.parse(datosQR);
-
-    // ----------------------------------
-    // TAREA PARA COMPLETAR POR EL ALUMNO
-    // ----------------------------------
-    // 1) Ejecutar el setter de la clase Asistencia:
-    //     this.asistencia.setAsistencia(...parametros...)
-    //    de modo que los parámetros los tome del objeto datosQR,
-    //    por ejemplo: datosQR.nombreAsignatura contiene el valor 
-    //    del nombre de la asignatura en la cual el alumno
-    //    debe quedar presente.
-    // 2) Hacer una interpolación entre las propiedades 
-    //    de "this.asistencia" y la página HTML, de modo
-    //    que la página muestre de manera ordenada estos datos.
+  
+    this.asistencia.setAsistencia(
+      objetoDatosQR.bloqueInicio,
+      objetoDatosQR.bloqueTermino,
+      objetoDatosQR.dia,
+      objetoDatosQR.horaFin,
+      objetoDatosQR.horaInicio,
+      objetoDatosQR.idAsignatura,
+      objetoDatosQR.nombreAsignatura,
+      objetoDatosQR.nombreProfesor,
+      objetoDatosQR.seccion,
+      objetoDatosQR.sede
+    );
+  
+    // Realiza la interpolación en la página HTML para mostrar los datos de asistencia ordenados.
   }
-
-  // Si la propiedad this.escaneando cambia a false, entonces la función
-  // "verificarVideo" deja de ejecutarse y se detiene el escaneo del QR.
 
   public detenerEscaneoQR(): void {
     this.escaneando = false;

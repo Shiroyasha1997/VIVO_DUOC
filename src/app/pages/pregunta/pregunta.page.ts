@@ -127,16 +127,16 @@ export class PreguntaPage implements OnInit, AfterViewInit {
       return false;
       }
   }
+
   async mostrarMensaje(mensaje: string, duracion?: number) {
-    // Permite mostrar un mensaje emergente que dura unos pocos segundos y desaparece. El mensaje es asincrónico, 
-    // los que permite que el mensaje se pueda ver incluso cuando ya ha cambiado a la siguiente página.
     const toast = await this.toastController.create({
         message: mensaje,
-        duration: duracion? duracion: 2000,
-        position: 'middle' // Posiciona el mensaje en el centro verticalmente
-      });
+        duration: duracion ? duracion : 2000,
+        cssClass: 'custom-toast-class' // Clase personalizada para ajustar la posición vertical
+    });
     toast.present();
   }
+  
   public login() : void{
     this.router.navigate(['/login'])
   }

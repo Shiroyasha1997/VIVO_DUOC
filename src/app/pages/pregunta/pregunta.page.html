@@ -8,15 +8,15 @@
 
   <div style="height: 80%; display: flex; align-items: center; justify-content:center;">
     <ion-card class="colorcard1 ion-text-center">
-      <ion-card-title class="azul ion-padding-top">
+      <ion-card-title class="blanco ion-padding-top">
         <ion-label class="ion-text-center">
-          <h1 class="azul">¡Bienvenido!</h1>
+          <h1 class="blanco">¡Bienvenido!</h1>
           <br>
-          <h2 class="azul">Paso 2: Responde la pregunta secreta</h2>
+          <h2 class="blanco">Paso 2: Responde la pregunta secreta</h2>
           
           <br>
-          <h2 class="azul" *ngIf="usuario"> {{ usuario.nombre }} {{usuario.apellido}}</h2>
-          <h4 class="azul" *ngIf="usuario">{{usuario.pregunta}}</h4>
+          <h2 class="blanco" *ngIf="usuario"> {{ usuario.nombre }} {{usuario.apellido}}</h2>
+          <h4 class="blanco" *ngIf="usuario">{{usuario.pregunta}}</h4>
         </ion-label>
       </ion-card-title>
 
@@ -29,7 +29,7 @@
           <br>
           <ion-button class="boton-duoc" (click)="ingresar()">Recuperar contraseña</ion-button>
           <br>
-          <a class="azul" routerLink="" (click)="login()">Iniciar sesión</a>
+          <a class="blanco" routerLink="" (click)="login()">Iniciar sesión</a>
         </ion-card-content>
       </form>
     </ion-card>

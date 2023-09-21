@@ -87,7 +87,7 @@ export class LoginPage implements OnInit {
     const toast = await this.toastController.create({
         message: mensaje,
         duration: duracion ? duracion : 2000,
-        position: 'middle' // Posiciona el mensaje en el centro verticalmente
+        cssClass: 'custom-toast-class' // Clase personalizada para ajustar la posición vertical
     });
     toast.present();
   }

@@ -7,30 +7,25 @@
 <ion-content class="background" [fullscreen]="true">
   <div style="height: 100%; display: flex; align-items: center; justify-content:center;">
     <ion-card class="colorcard1 ion-text-center ion-padding-vertical">
-
       <ion-card-title>
         <ion-label class="ion-text-center">
-          <ion-title #titulo class="titulo-animado">
+          <ion-title #titulo class="titulo-animado blanco">
             ¡Bienvenido!
           </ion-title>
-          <h2 class="azul" *ngIf="usuario">Usuario: {{ usuario.nombre }} {{usuario.apellido}}</h2>
+          <h2 class="blanco" *ngIf="usuario">Usuario: {{ usuario.nombre }} {{usuario.apellido}}</h2>
         </ion-label>
       </ion-card-title>
-
       <ion-card-content>
         <ion-button class="boton-duoc ion-auto" *ngIf="!escaneando" (click)="comenzarEscaneoQR()">
           <ion-icon slot="start" name="videocam-outline"></ion-icon>
           Comenzar Escaneo de QR
         </ion-button>
-
         <ion-button class="boton-duoc ion-auto" *ngIf="escaneando" (click)="detenerEscaneoQR()">
           <ion-icon slot="start" name="stop-circle-outline"></ion-icon>
           Detener escaneo de QR
         </ion-button>
-
         <video #video [hidden]="!escaneando" width="100%"></video>
         <canvas #canvas hidden></canvas>
-
         <ion-card>
           <ion-card-header>
             <ion-card-title>Los datos del Código QR son los siguientes:</ion-card-title>
@@ -44,11 +39,9 @@
             </h2>
           </ion-card-content>
         </ion-card>
-
         <ion-button class="boton-duoc ion-auto" (click)="cerrarSesion()">
           Cerrar Sesión
         </ion-button>
-        
       </ion-card-content>
     </ion-card>
   </div>
