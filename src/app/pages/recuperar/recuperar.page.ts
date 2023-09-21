@@ -11,23 +11,7 @@ import { Usuario } from 'src/app/model/Usuario';
 })
 export class RecuperarPage implements OnInit {
 
-  // CGV: La clase typescript "LoginPage" es la encargada de implementar las reglas de negocio de la página.
-  // Las propiedades del archivo typescript pueden intercambiar valores con los elementos HTML, por medio
-  // de "Modelo Angular". Por ejemplo, el siguiente TAG se enlaza con la propiedad "usuario.correo":
-  //   <ion-input type="text" [(ngModel)]="usuario.correo"></ion-input>
-  // Gracias a este modelo, cada vez que cambia la caja de texto entonces cambia la propiedad y viceversa.
-
   public usuario: Usuario;
-
-  // CGV: Para poder trabajar con Router y poder navegar hacia la página "home", debemos primero pasar como
-  // parámetro e instanciar un objeto de la clase "Router". Fijarse que el tipo de dato, que se pasa 
-  // en el constructor es "Router" con mayúscula, porque se trata de una clase y éstas parten con letra 
-  // mayúscula, mientras que "router" con minúscula es el objeto de esa clase, que usaremos para ejecutar
-  // el método "navigate". La creación de parámetros "private" en el constructor se llama 
-  // "Inyección de Dependencia" y es una práctica recomendada en Angular, que permite crear el objeto
-  // como una propiedad más de la página y así poder usarla. Por otro lado, la "Inyección de Dependencia"
-  // permite compartir una única instancia de dicho objeto en el resto de las páginas que lo usen. Lo
-  // anterior es especialmente importante para mantener la coherencia y estados compartidos en los Servicios.
   
   constructor(private router: Router, private toastController: ToastController, private alertController: AlertController) {
     this.usuario = new Usuario('', '', '', '', '','')
@@ -99,13 +83,11 @@ export class RecuperarPage implements OnInit {
   }
 
   async mostrarMensaje(mensaje: string, duracion?: number) {
-    // Permite mostrar un mensaje emergente que dura unos pocos segundos y desaparece. El mensaje es asincrónico, 
-    // los que permite que el mensaje se pueda ver incluso cuando ya ha cambiado a la siguiente página.
     const toast = await this.toastController.create({
         message: mensaje,
-        duration: duracion? duracion: 2000,
-        position: 'middle' // Posiciona el mensaje en el centro verticalmente
-      });
+        duration: duracion ? duracion : 2000,
+        cssClass: 'custom-toast-class' // Clase personalizada para ajustar la posición vertical
+    });
     toast.present();
   }
 
