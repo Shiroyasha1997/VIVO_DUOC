@@ -96,5 +96,8 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/recuperar'])
   }
 
+  error404() {
+    this.router.navigate(['error404']);
+  }
 
 }

@@ -36,18 +36,48 @@
             <ion-card-title>Mis Datos</ion-card-title>
           </ion-card-header>
           <ion-card-content class="borde">
-            <h2 *ngIf="datosQR">
-              Bloque de inicio: {{ asistencia.bloqueInicio }} <br>
-              Bloque de término: {{ asistencia.bloqueTermino }} <br>
-              Día: {{ asistencia.dia }} <br>
-              Hora de inicio: {{ asistencia.horaInicio }} <br>
-              Hora de término: {{ asistencia.horaFin }} <br>
-              ID de asignatura: {{ asistencia.idAsignatura }} <br>
-              Nombre de asignatura: {{ asistencia.nombreAsignatura }} <br>
-              Nombre del profesor: {{ asistencia.nombreProfesor }} <br>
-              Sección: {{ asistencia.seccion }} <br>
-              Sede: {{ asistencia.sede }}
-            </h2>
+            <table *ngIf="datosQR">
+              <tr>
+                <td class="ancho_columna_titulos">Bloque de Inicio: </td>
+                <td id="data">{{ asistencia.bloqueInicio }}</td>
+              </tr>
+              <tr>
+                <td class="ancho_columna_titulos">Bloque de término: </td>
+                <td id="data">{{ asistencia.bloqueTermino }}</td>
+              </tr>
+              <tr>
+                <td class="ancho_columna_titulos">Día: </td>
+                <td id="data">{{ asistencia.dia }}</td>
+              </tr>
+              <tr>
+                <td class="ancho_columna_titulos">Hora de inicio: </td>
+                <td id="data">{{ asistencia.horaInicio }}</td>
+              </tr>
+              <tr>
+                <td class="ancho_columna_titulos">Hora de término: </td>
+                <td id="data">{{ asistencia.horaFin }}</td>
+              </tr>
+              <tr>
+                <td class="ancho_columna_titulos">ID de asignatura: </td>
+                <td id="data">{{ asistencia.idAsignatura }}</td>
+              </tr>
+              <tr>
+                <td class="ancho_columna_titulos">Nombre de asignatura: </td>
+                <td id="data">{{ asistencia.nombreAsignatura }}</td>
+              </tr>
+              <tr>
+                <td class="ancho_columna_titulos">Nombre del profesor: </td>
+                <td id="data">{{ asistencia.nombreProfesor }}</td>
+              </tr>
+              <tr>
+                <td class="ancho_columna_titulos">Sección: </td>
+                <td id="data">{{ asistencia.seccion }}</td>
+              </tr>
+              <tr>
+                <td class="ancho_columna_titulos">Sede: </td>
+                <td id="data">{{ asistencia.sede }}</td>
+              </tr>
+            </table>
             <h2 *ngIf="!datosQR">
               Sin información
             </h2>

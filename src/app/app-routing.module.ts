@@ -31,6 +31,14 @@ const routes: Routes = [
     path: 'pregunta',
     loadChildren: () => import('./pages/pregunta/pregunta.module').then( m => m.PreguntaPageModule)
   },
+  {
+    path: 'error404',
+    loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
+  },
 
 ];
 
