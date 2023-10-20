@@ -49,13 +49,6 @@ echo.
 echo.
 
 echo ******************************************
-echo npm i @capacitor-community/barcode-scanner
-echo ******************************************
-call npm i @capacitor-community/barcode-scanner
-echo.
-echo.
-
-echo ******************************************
 echo npm i @capacitor-community/sqlite --save
 echo ******************************************
 call npm i @capacitor-community/sqlite --save
@@ -73,6 +66,27 @@ echo ******************************************
 echo npm i jsqr@latest --save
 echo ******************************************
 call npm i jsqr@latest --save
+echo.
+echo.
+
+echo ******************************************
+echo npm i jeep-sqlite --save
+echo ******************************************
+call npm i jeep-sqlite --save
+echo.
+echo.
+
+echo ******************************************
+echo npm install --save sql.js
+echo ******************************************
+call npm install --save sql.js
+echo.
+echo.
+
+echo ******************************************
+echo npm install @capacitor-mlkit/barcode-scanning
+echo ******************************************
+call npm install @capacitor-mlkit/barcode-scanning
 echo.
 echo.
 

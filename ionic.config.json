@@ -1,8 +1,7 @@
 {
   "name": "VIVO_DUOC",
   "integrations": {
-    "cordova": {},
     "capacitor": {}
   },
-  "type": "angular"
+  "type": "angular-standalone"
 }

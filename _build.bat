@@ -5,4 +5,5 @@ echo COMPILAR APLICACION
 echo ******************************************
 echo.
 echo.
+
 call ionic build
