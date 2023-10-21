@@ -1,12 +1,12 @@
+<!--HEADER-->
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Asistencia DUOC - Ingreso</ion-title>
+  <ion-toolbar class="header-toolbar">
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="background">
   <div class="centrado-vertical">
-    <div class="marco">
+    <div class="colorcard1">
       <ion-item>
         <ion-input [(ngModel)]="correo" type="text" label="Correo" labelPlacement="floating"></ion-input>
       </ion-item>
@@ -14,10 +14,21 @@
         <ion-input [(ngModel)]="password" type="password" label="Contraseña" labelPlacement="floating"></ion-input>
       </ion-item>
       <div class="alinear-centro">
-        <ion-button (click)="ingresar()" class="">
+        <br>
+        <ion-button class="boton-duoc ion-auto" (click)="ingresar()">
           Ingresar
         </ion-button>
+        <br>
+        <ion-label>
+          <a class="blanco" routerLink="" (click)="pregunta()">Recupera tu contraseña</a>
+        </ion-label>
       </div>
     </div>
   </div>
 </ion-content>
+
+<!--FOOTER-->
+<ion-footer>
+  <ion-toolbar class="footer-toolbar">
+  </ion-toolbar>
+</ion-footer>

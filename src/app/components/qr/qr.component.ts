@@ -169,4 +169,32 @@ export class QrComponent implements OnInit {
     }
   }
 
+  public cargarImagen(event: any): void {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      const img = new Image();
+      img.onload = () => {
+        const w = img.width;
+        const h = img.height;
+        this.canvas.nativeElement.width = w;
+        this.canvas.nativeElement.height = h;
+        const context: CanvasRenderingContext2D = this.canvas.nativeElement.getContext('2d');
+        context.drawImage(img, 0, 0, w, h);
+        const imgData: ImageData = context.getImageData(0, 0, w, h);
+        let qrCode: QRCode | null = jsQR(imgData.data, w, h, { inversionAttempts: 'dontInvert' });
+        if (qrCode) {
+          if (qrCode.data !== '') {
+            this.qrCapturado.emit(qrCode.data);
+            this.bd.datosQR.next(qrCode.data);
+          } else {
+            showAlertDUOC('El código QR escaneado no corresponde a una Asistencia de DUOC');
+          }
+        }
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
 }
