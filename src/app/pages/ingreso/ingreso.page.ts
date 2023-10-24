@@ -26,7 +26,7 @@ export class IngresoPage implements OnInit {
     this.authService.login(this.correo, this.password);
   }
 
-  pregunta() {
-    this.router.navigate(['pregunta']);
+  recuperar() {
+    this.router.navigate(['correo']);
   }
 }
