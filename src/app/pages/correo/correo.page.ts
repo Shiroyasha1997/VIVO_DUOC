@@ -29,7 +29,17 @@ export class CorreoPage {
   async ingresar(): Promise<void> {
     if (this.usuario.correo) {
       // Validar el correo antes de continuar
-      const mensajeError = this.usuario.validarCorreo(this.usuario.correo);
+      let mensajeError = '';
+
+      const usu = await this.dataBaseService.leerUsuario(this.usuario.correo);
+
+      if (usu) {
+      }
+
+      else {
+        mensajeError= 'El correo ingresado no existe en la base de datos';
+      }
+
       if (mensajeError) {
         this.mostrarMensaje(mensajeError);
         return;
