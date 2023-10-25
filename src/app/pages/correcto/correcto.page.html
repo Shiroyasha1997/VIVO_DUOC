@@ -1,13 +1,32 @@
+<!--HEADER-->
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Asistencia DUOC - Correcto</ion-title>
+  <ion-toolbar class="header-toolbar">
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">correcto</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="background">
+  <div class="centrado-vertical">
+    <div class="colorcard1">
+      <ion-img class="img-size ion-padding-vertical" src="assets/img/logo-correcto.png"></ion-img>
+      <h1 class="blanco">¡Bienvenido!</h1>
+      <ion-item>
+        <h4 class="blanco">Usuario: </h4>
+        <h4 class="blanco">Tu contraseña es: </h4>
+      </ion-item>
+    </div>
+  </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="volver()" expand="block" fill="clear" shape="round">
+      Volver
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
+
+<!--FOOTER-->
+<ion-footer>
+  <ion-toolbar class="footer-toolbar">
+  </ion-toolbar>
+</ion-footer>

@@ -1,13 +1,43 @@
+<!--HEADER-->
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>pregunta</ion-title>
+  <ion-toolbar class="header-toolbar">
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">pregunta</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="alinear-centro">Pregunta de Seguridad</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <div class="centrado-vertical">
+    <div class="colorcard1">
+      <ion-item>
+        <ion-card-title class="alinear-centro">{{ preguntaSecreta }}</ion-card-title>
+        <ion-label position="floating">Respuesta</ion-label>
+        <ion-input [(ngModel)]="respuesta" type="text"></ion-input>
+      </ion-item>
+      <div class="alinear-centro">
+        <br>
+        <ion-button class="boton-duoc ion-auto" (click)="responderPregunta()">
+          Verificar
+        </ion-button>
+      </div>
+    </div>
+  </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="volver()" expand="block" fill="clear" shape="round">
+      Volver
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
+
+<!--FOOTER-->
+<ion-footer>
+  <ion-toolbar class="footer-toolbar">
+  </ion-toolbar>
+</ion-footer>

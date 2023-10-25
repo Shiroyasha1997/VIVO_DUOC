@@ -33,9 +33,13 @@ export const log = (source: string, message: string, returnValue?: boolean): any
     return;
 }
 
-export const showToast = async (message:string, duration?: number) => {
+export const showToast = async (message: string, duration?: number) => {
     const controler = new ToastController();
-    const toast = await controler.create({ message:message, duration: duration?duration:2000 });
+    const toast = await controler.create({ 
+      message: message, 
+      duration: duration ? duration : 2000,
+      cssClass: 'custom-toast' // Agrega esta línea para aplicar CSS personalizado
+    });
     await toast.present();
 }
 
