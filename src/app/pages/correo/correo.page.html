@@ -6,17 +6,18 @@
 
 <ion-content class="background">
   <div class="centrado-vertical">
-    <div class="colorcard1">
+    <ion-card class="colorcard1">
+      <ion-title class="alinear-centro blanco">Recuperar Contraseña</ion-title>
       <ion-item>
         <ion-input [(ngModel)]="usuario.correo" type="text" label="Correo" labelPlacement="floating"></ion-input>
       </ion-item>
       <div class="alinear-centro">
         <br>
         <ion-button class="boton-duoc ion-auto" (click)="ingresar()">
-          Recuperar Contraseña
+          Verificar
         </ion-button>
       </div>
-    </div>
+    </ion-card>
   </div>
 </ion-content>
 
