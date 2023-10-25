@@ -12,9 +12,9 @@
 
 <ion-content class="background">
   <div class="centrado-vertical">
-    <div class="colorcard1">
+    <ion-card class="colorcard1">
+      <ion-card-title class="alinear-centro">{{ preguntaSecreta }}</ion-card-title>
       <ion-item>
-        <ion-card-title class="alinear-centro">{{ preguntaSecreta }}</ion-card-title>
         <ion-label position="floating">Respuesta</ion-label>
         <ion-input [(ngModel)]="respuesta" type="text"></ion-input>
       </ion-item>
@@ -24,7 +24,7 @@
           Verificar
         </ion-button>
       </div>
-    </div>
+    </ion-card>
   </div>
 </ion-content>
 
