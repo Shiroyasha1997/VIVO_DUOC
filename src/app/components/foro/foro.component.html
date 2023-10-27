@@ -15,8 +15,8 @@
     </ion-item>
 
     <div class="alinear-centro">
-      <ion-button (click)="limpiarPublicacion()">Limpiar</ion-button>
-      <ion-button (click)="guardarPublicacion()">Guardar</ion-button>
+      <ion-button class="boton-duoc ion-auto" (click)="limpiarPublicacion()">Limpiar</ion-button>
+      <ion-button class="boton-duoc ion-auto" (click)="guardarPublicacion()">Guardar</ion-button>
     </div>
 
   </ion-card>
@@ -40,11 +40,11 @@
     </ion-card-content>
 
     <div class="alinear-derecha">
-      <ion-button (click)="editarPublicacion(pub)">
+      <ion-button class="boton-duoc ion-auto" (click)="editarPublicacion(pub)">
         <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
       </ion-button>
 
-      <ion-button (click)="eliminarPublicacion(pub)">
+      <ion-button class="boton-duoc ion-auto" (click)="eliminarPublicacion(pub)">
         <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
       </ion-button>
     </div>

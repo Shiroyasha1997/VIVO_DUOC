@@ -6,11 +6,12 @@
 
 <ion-content class="background">
   <div class="centrado-vertical">
-    <div class="colorcard1">
-      <ion-item>
+    <ion-card class="colorcard1">
+      <ion-title class="alinear-centro blanco">Sistema de Asistencia DUOC</ion-title>
+      <ion-item class="input-text">
         <ion-input [(ngModel)]="correo" type="text" label="Correo" labelPlacement="floating"></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item class="input-text">
         <ion-input [(ngModel)]="password" type="password" label="Contraseña" labelPlacement="floating"></ion-input>
       </ion-item>
       <div class="alinear-centro">
@@ -23,7 +24,7 @@
           Recuperar Contraseña
         </ion-button>
       </div>
-    </div>
+    </ion-card>
   </div>
 </ion-content>
 

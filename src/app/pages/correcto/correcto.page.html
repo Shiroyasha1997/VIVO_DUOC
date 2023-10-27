@@ -1,22 +1,24 @@
-<!--HEADER-->
+<!-- HEADER -->
 <ion-header [translucent]="true">
   <ion-toolbar class="header-toolbar">
   </ion-toolbar>
 </ion-header>
 
+<!-- CONTENT -->
 <ion-content class="background">
   <div class="centrado-vertical">
-    <div class="colorcard1">
+    <ion-card class="colorcard1">
       <ion-img class="img-size ion-padding-vertical" src="assets/img/logo-correcto.png"></ion-img>
       <h1 class="blanco">¡Bienvenido!</h1>
       <ion-item>
-        <h4 class="blanco">Usuario: </h4>
-        <h4 class="blanco">Tu contraseña es: </h4>
+        <h4 class="blanco">Usuario: {{ nombre }}</h4>
+        <h4 class="blanco">Tu contraseña es: {{ password }}</h4>
       </ion-item>
-    </div>
+    </ion-card>
   </div>
 </ion-content>
 
+<!-- FOOTER -->
 <ion-footer>
   <ion-toolbar>
     <ion-button (click)="volver()" expand="block" fill="clear" shape="round">
@@ -25,7 +27,7 @@
   </ion-toolbar>
 </ion-footer>
 
-<!--FOOTER-->
+<!-- FOOTER -->
 <ion-footer>
   <ion-toolbar class="footer-toolbar">
   </ion-toolbar>

@@ -29,7 +29,11 @@ export class CorreoPage {
   async ingresar(): Promise<void> {
     if (this.usuario.correo) {
       // Validar el correo antes de continuar
-      const mensajeError = this.usuario.validarCorreo(this.usuario.correo);
+      let mensajeError = '';
+      const usu = await this.dataBaseService.leerUsuario(this.usuario.correo);
+      if (!usu) {
+        mensajeError = 'El correo ingresado no existe en la base de datos';
+      }
       if (mensajeError) {
         this.mostrarMensaje(mensajeError);
         return;
@@ -37,16 +41,14 @@ export class CorreoPage {
 
       // Realizar la validación del correo en la base de datos utilizando el servicio DataBaseService
       await this.dataBaseService.leerUsuarios();
-
       const usuario = this.dataBaseService.listaUsuarios.value.find(
         (u) => u.correo === this.usuario.correo
       );
-
       if (usuario) {
         // Si la validación es exitosa, navegar a la página de recuperación de contraseña
         const navigationExtras: NavigationExtras = {
           state: {
-            correo: this.usuario.correo,
+            usuario: usuario,
           },
         };
         this.router.navigate(['pregunta'], navigationExtras);

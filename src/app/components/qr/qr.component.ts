@@ -13,6 +13,7 @@ import { BarcodeFormat, BarcodeScanner, ScanResult } from '@capacitor-mlkit/barc
 import { MessageEnum } from 'src/app/tools/message-enum';
 import { SQLiteService } from 'src/app/services/sqlite.service';
 import { DataBaseService } from 'src/app/services/data-base.service';
+import { AnimationController} from '@ionic/angular';
 
 @Component({
   selector: 'app-qr',
@@ -23,6 +24,7 @@ import { DataBaseService } from 'src/app/services/data-base.service';
 })
 export class QrComponent implements OnInit {
 
+  @ViewChild('titulo', { read: ElementRef }) itemTitulo!: ElementRef;
   @ViewChild('video') private video!: ElementRef;
   @ViewChild('canvas') private canvas!: ElementRef;
   @Output() qrCapturado: EventEmitter<string> = new EventEmitter();
@@ -38,7 +40,8 @@ export class QrComponent implements OnInit {
     private authService: AuthService,
     private bd: DataBaseService,
     private sqliteService: SQLiteService,
-    private readonly ngZone: NgZone) { }
+    private readonly ngZone: NgZone,
+    private animationController: AnimationController) { }
 
   async ngOnInit() {
     this.plataforma = this.sqliteService.platform;
@@ -197,4 +200,29 @@ export class QrComponent implements OnInit {
     reader.readAsDataURL(file);
   }
 
+  public animateItem(elementRef: any) {
+    this.animationController
+      .create()
+      .addElement(elementRef)
+      .iterations(1)
+      .duration(600)
+      .fromTo('transform', 'translate(100%)', 'translate(0%)')
+      .play();
+  }
+
+  public ngAfterViewInit(): void {
+    if (this.itemTitulo) {
+      const animation = this.animationController
+        .create()
+        .addElement(this.itemTitulo.nativeElement)
+        .iterations(Infinity)
+        .duration(5000)
+        .keyframes([
+          { offset: 0, transform: 'translateX(-100%)' },
+          { offset: 0.5, transform: 'translateX(0%)' },
+          { offset: 1, transform: 'translateX(100%)' }
+        ])
+      animation.play();
+    }
+  }
 }

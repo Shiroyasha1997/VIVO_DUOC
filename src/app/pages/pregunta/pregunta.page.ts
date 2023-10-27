@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { Router, NavigationExtras } from '@angular/router';
+import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Usuario } from 'src/app/model/usuario';
 import { DataBaseService } from 'src/app/services/data-base.service';
@@ -15,6 +15,7 @@ import { DataBaseService } from 'src/app/services/data-base.service';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class PreguntaPage implements OnInit {
+  public usuario = new Usuario();
   public correo: string;
   public respuesta: string;
   public preguntaSecreta: string;
@@ -22,36 +23,42 @@ export class PreguntaPage implements OnInit {
   constructor(
     private router: Router,
     private toastController: ToastController,
-    private dataBaseService: DataBaseService
+    private dataBaseService: DataBaseService,
+    private activeroute: ActivatedRoute
   ) {
+    this.usuario = new Usuario();
     this.correo = '';
     this.respuesta = '';
     this.preguntaSecreta = '';
   }
 
   ngOnInit() {
-    this.obtenerCorreoUsuario();
+    this.obtenerUsuario();
   }
-
-  async obtenerCorreoUsuario() {
-    const extras = this.router.getCurrentNavigation()?.extras;
-    if (extras && extras.state && extras.state['correo']) {
-      this.correo = extras.state['correo'];
-      const usuario = await this.dataBaseService.leerUsuario(this.correo);
-      if (!usuario) {
-        this.mostrarMensaje('El correo no está registrado en nuestra base de datos');
-        this.router.navigate(['correo']);
-      } else {
-        this.preguntaSecreta = usuario.preguntaSecreta;
+  
+  async obtenerUsuario() {
+    this.activeroute.queryParams.subscribe(params => { 
+      const nav = this.router.getCurrentNavigation();
+      if (nav) {
+        // Si tiene datos extra, se rescatan y se asignan a una propiedad
+        if (nav.extras.state) {
+          this.usuario = nav.extras.state['usuario'];
+          this.preguntaSecreta = this.usuario.preguntaSecreta;
+        }
       }
-    }
+    });
   }
-
+  
   async responderPregunta(): Promise<void> {
-    const usuario = await this.dataBaseService.leerUsuario(this.correo);
-    if (usuario && this.respuesta.trim() === usuario.respuestaSecreta) {
+    const usuario = await this.dataBaseService.leerUsuarios();
+    if (this.respuesta.trim() === this.usuario.respuestaSecreta) {
+      const navigationExtras: NavigationExtras = {
+        state: {
+          usuario: usuario,
+        },
+      };
       // Respuesta correcta, redirigir a la página correcta
-      this.router.navigate(['correcto']);
+      this.router.navigate(['correcto'], navigationExtras);
     } else {
       // Respuesta incorrecta o usuario no encontrado, redirigir a la página incorrecta
       this.router.navigate(['incorrecto']);
