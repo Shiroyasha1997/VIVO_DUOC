@@ -30,10 +30,23 @@ export class CorreoPage {
     if (this.usuario.correo) {
       // Validar el correo antes de continuar
       let mensajeError = '';
+<<<<<<< HEAD
       const usu = await this.dataBaseService.leerUsuario(this.usuario.correo);
       if (!usu) {
         mensajeError = 'El correo ingresado no existe en la base de datos';
       }
+=======
+
+      const usu = await this.dataBaseService.leerUsuario(this.usuario.correo);
+
+      if (usu) {
+      }
+
+      else {
+        mensajeError= 'El correo ingresado no existe en la base de datos';
+      }
+
+>>>>>>> a882ff391fd0950aa17d9e5b01b5e4e060e78b09
       if (mensajeError) {
         this.mostrarMensaje(mensajeError);
         return;
