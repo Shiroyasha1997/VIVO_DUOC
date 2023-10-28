@@ -14,6 +14,7 @@ import { DataBaseService } from 'src/app/services/data-base.service';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
+
 export class CorreoPage {
   public usuario: Usuario;
 
@@ -21,6 +22,7 @@ export class CorreoPage {
     private router: Router,
     private toastController: ToastController,
     private dataBaseService: DataBaseService
+    
   ) {
     this.usuario = new Usuario();
     this.usuario.correo = 'atorres@duocuc.cl'; // Valor por defecto para el correo para modo prueba

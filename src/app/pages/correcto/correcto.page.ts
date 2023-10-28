@@ -16,20 +16,19 @@ import { DataBaseService } from 'src/app/services/data-base.service';
 })
 
 export class CorrectoPage implements OnInit {
-  public usuario: Usuario;
+  public usuario = new Usuario();
   public nombre: string;
-  public correo: string;
-  public password: String;
+  public password: string;
 
   constructor(
     private router: Router,
     private toastController: ToastController,
     private activeroute: ActivatedRoute,
     private dataBaseService: DataBaseService
+
   ) {
     this.usuario = new Usuario();
     this.nombre = '';
-    this.correo = '';
     this.password = '';
   }
 

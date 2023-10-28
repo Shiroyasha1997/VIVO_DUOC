@@ -14,6 +14,7 @@ import { DataBaseService } from 'src/app/services/data-base.service';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
+
 export class PreguntaPage implements OnInit {
   public usuario = new Usuario();
   public correo: string;
@@ -23,12 +24,13 @@ export class PreguntaPage implements OnInit {
   constructor(
     private router: Router,
     private toastController: ToastController,
-    private dataBaseService: DataBaseService,
-    private activeroute: ActivatedRoute
+    private activeroute: ActivatedRoute,
+    private dataBaseService: DataBaseService
+    
   ) {
     this.usuario = new Usuario();
     this.correo = '';
-    this.respuesta = '';
+    this.respuesta = 'gato';
     this.preguntaSecreta = '';
   }
 
