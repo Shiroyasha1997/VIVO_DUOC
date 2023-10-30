@@ -50,6 +50,11 @@ export class CorrectoPage implements OnInit {
     });
   }
 
+  async cargarDatos(): Promise<void> {
+    this.nombre = this.usuario.nombre;
+    this.password = this.usuario.password;
+  }
+
   volver(): void {
     this.router.navigate(['ingreso']);
   }
