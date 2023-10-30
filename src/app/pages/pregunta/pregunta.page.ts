@@ -60,7 +60,7 @@ export class PreguntaPage implements OnInit {
         },
       };
       // Respuesta correcta, redirigir a la página correcta
-      this.router.navigate(['correcto'], navigationExtras);
+      this.router.navigate(['correcto'], { state: { usuario: this.usuario } });
     } else {
       // Respuesta incorrecta o usuario no encontrado, redirigir a la página incorrecta
       this.router.navigate(['incorrecto']);

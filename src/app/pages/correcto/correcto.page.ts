@@ -18,6 +18,7 @@ import { DataBaseService } from 'src/app/services/data-base.service';
 export class CorrectoPage implements OnInit {
   public usuario = new Usuario();
   public nombre: string;
+  public apellido: string;
   public password: string;
 
   constructor(
@@ -29,6 +30,7 @@ export class CorrectoPage implements OnInit {
   ) {
     this.usuario = new Usuario();
     this.nombre = '';
+    this.apellido = '';
     this.password = '';
   }
 
@@ -44,15 +46,11 @@ export class CorrectoPage implements OnInit {
         if (nav.extras.state) {
           this.usuario = nav.extras.state['usuario'];
           this.nombre = this.usuario.nombre;
+          this.apellido = this.usuario.apellido;
           this.password = this.usuario.password;
         }
       }
     });
-  }
-
-  async cargarDatos(): Promise<void> {
-    this.nombre = this.usuario.nombre;
-    this.password = this.usuario.password;
   }
 
   volver(): void {

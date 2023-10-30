@@ -30,18 +30,11 @@ export class CorreoPage {
 
   async ingresar(): Promise<void> {
     if (this.usuario.correo) {
-      // Validar el correo antes de continuar
-      const usu = await this.dataBaseService.leerUsuario(this.usuario.correo);
-      if (!usu) {
-        this.mostrarMensaje('El correo no está registrado en nuestra base de datos');
-      }
-
       // Realizar la validación del correo en la base de datos utilizando el servicio DataBaseService
-      await this.dataBaseService.leerUsuarios();
-      const usuario = this.dataBaseService.listaUsuarios.value.find(
-        (u) => u.correo === this.usuario.correo
-      );
-      if (usuario) {
+      const usuario = await this.dataBaseService.leerUsuario(this.usuario.correo);
+      if (!usuario) {
+        this.mostrarMensaje('El correo no está registrado en nuestra base de datos');
+      } else {
         // Si la validación es exitosa, navegar a la página de pregunta
         const navigationExtras: NavigationExtras = {
           state: {
@@ -49,8 +42,6 @@ export class CorreoPage {
           },
         };
         this.router.navigate(['pregunta'], navigationExtras);
-      } else {
-        this.mostrarMensaje('El correo no está registrado en nuestra base de datos');
       }
     }
   }
