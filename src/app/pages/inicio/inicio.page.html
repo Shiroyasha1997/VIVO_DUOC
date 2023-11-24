@@ -24,6 +24,9 @@
 </ion-header>
 
 <ion-content>
+  <div class="centrado-vertical">
+    <ion-title class="alinear-centro blanco">Sistema de Asistencia DUOC</ion-title>
+  </div>
   <app-qr [hidden]="componente_actual !== 'qr'" (qrCapturado)="cambiarComponente('miclase')"></app-qr>
   <app-miclase [hidden]="componente_actual !== 'miclase'"></app-miclase>
   <app-foro [hidden]="componente_actual !== 'foro'"></app-foro>
