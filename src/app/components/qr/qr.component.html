@@ -16,14 +16,14 @@
     Detener escaneo de QR
   </ion-button>
 
-  <!-- El siguiente elemento input es de tipo archivo y está oculto -->
-  <input type="file" #fileInput hidden (change)="cargarImagen($event)">
+  <!-- El siguiente elemento input es de tipo archivo y está oculto
+  <input type="file" #fileInput hidden (change)="cargarImagen($event)"> -->
 
-  <!-- El siguiente botón activa el evento click del input de archivo -->
+  <!-- El siguiente botón activa el evento click del input de archivo
   <ion-button class="boton-duoc ion-auto" (click)="fileInput.click()">
     <ion-icon slot="start" name="image-outline"></ion-icon>
     Subir imagen de QR
-  </ion-button>
+  </ion-button> -->
 
   <video #video [hidden]="!escaneando" width="100%"></video>
   <canvas #canvas hidden></canvas>

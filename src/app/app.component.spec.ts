@@ -13,7 +13,7 @@ describe('Probar al comiezo de la aplicacion', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [],
-      imports: [AppComponent],
+      imports: [AppComponent, ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   });
